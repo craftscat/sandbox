@@ -1,5 +1,11 @@
 on:
   workflow_dispatch:
+    inputs:
+      checkbox:
+        description: "checkbox" 
+        required: true
+        type: boolean
+        default: false
 
 jobs:
   echo:
@@ -12,6 +18,7 @@ jobs:
           echo '4' ${{ github.head_ref }}
           echo '5' ${{ github.base_ref }}
           echo '6' ${{ github.ref_type }}
+          echo '7' ${{ inputs.checkbox }}
           if [ ${{ github.ref_name }} = "main" ]; then
             echo 'hogehoge'
           fi
